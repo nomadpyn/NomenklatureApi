@@ -144,9 +144,7 @@ namespace NomenklatureApi.Data
         /// <returns></returns>
         public async Task<IEnumerable<HierarchyNomenklature>> HierarchyNomenklatureListAsync(int nomenklatureId)
         {
-            Nomenklature nomenklature;
-
-            nomenklature = _context.Nomenklatures.FirstOrDefault(p => p.Id == nomenklatureId);
+            Nomenklature nomenklature = await _context.Nomenklatures.FirstOrDefaultAsync(p => p.Id == nomenklatureId);
 
             if (nomenklature == null)
             {
@@ -217,7 +215,7 @@ namespace NomenklatureApi.Data
         /// <returns></returns>
         private async Task<Nomenklature> GetNomenklatureById(int nomenklatureId)
         {
-            return _context.Nomenklatures.Where(x => x.Id == nomenklatureId).FirstOrDefault();
+            return await _context.Nomenklatures.Where(x => x.Id == nomenklatureId).FirstOrDefaultAsync();
         }
 
         /// <summary>
@@ -228,7 +226,7 @@ namespace NomenklatureApi.Data
         /// <returns></returns>
         private async Task<Link> GetLink(int parent, int child)
         {
-            Link link = _context.Links.Where(x => (x.ParentId.Id == parent && x.ChildId.Id == child)).FirstOrDefault();
+            Link link = await _context.Links.Where(x => (x.ParentId.Id == parent && x.ChildId.Id == child)).FirstOrDefaultAsync();
 
             return link;
         }
