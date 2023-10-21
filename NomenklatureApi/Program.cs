@@ -1,4 +1,4 @@
-#region Using
+п»ї#region Using
 using Microsoft.EntityFrameworkCore;
 using NomenklatureApi.Data;
 #endregion
@@ -8,7 +8,7 @@ namespace NomenklatureApi
     #region Public Class Program
 
     /// <summary>
-    /// Основной класс api
+    /// РћСЃРЅРѕРІРЅРѕР№ РєР»Р°СЃСЃ api
     /// </summary>
     public class Program
     {
