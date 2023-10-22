@@ -1,0 +1,36 @@
+version: '3.4'
+
+services:
+  nomenklatureapi:
+    container_name: nomenkalture_app
+    image: ${DOCKER_REGISTRY-}nomenklatureapi
+    build:
+      context: .
+      dockerfile: NomenklatureApi/Dockerfile
+    ports:
+      - "7000:80"
+    depends_on:
+      - postgres_db
+    networks:
+      - default
+
+    
+  postgres_db:
+    container_name: postgres_db
+    image: postgres:15
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=123
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - default
+
+volumes:
+  pgdata: {}
+
+networks:
+  default:
+    driver: bridge
