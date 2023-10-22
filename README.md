@@ -25,4 +25,6 @@
 * POST /api/nomenklatures/link - Связать два продукта;
 * DELETE /api/nomenklatures/link - Удалить связть между двумя продуктам.
 
-Для работы с БД необходимо использовать Entity Framework.    
+Для работы с БД необходимо использовать Entity Framework.   
+
+Добавлена поддержка Docker Compose (контейнер с приложение и контейнер с БД Postgres)
